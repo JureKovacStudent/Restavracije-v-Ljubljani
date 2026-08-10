@@ -1,35 +1,35 @@
 import sqlite3
 
-# Ime SQLite baze
 BAZA = "RestavracijeVLjubljani.db"
 
-# Funkcija ustvari povezavo na bazo
-# in vklopi preverjanje tujih ključev
+
+# Povezava s podatkovno bazo
 def povezava():
     conn = sqlite3.connect(BAZA)
     conn.execute("PRAGMA foreign_keys = ON;")
     return conn
 
 
-# Vrne seznam vseh restavracij
+# Vrne vse restavracije
 def vse_restavracije():
     conn = povezava()
     cursor = conn.cursor()
 
-    # Poizvedba za pridobitev osnovnih podatkov
-    cursor.execute("SELECT id_restavracije, ime, naslov FROM Restavracija;")
+    cursor.execute("""
+        SELECT id_restavracije, ime, naslov
+        FROM Restavracija;
+    """)
 
     podatki = cursor.fetchall()
     conn.close()
     return podatki
 
 
-# Vrne vse jedi, ki pripadajo izbrani restavraciji
+# Vrne jedi posamezne restavracije
 def jedi_po_restavraciji(id_restavracije):
     conn = povezava()
     cursor = conn.cursor()
 
-    # Vrne ID in ime jedi
     cursor.execute("""
         SELECT j.id_jedi, j.ime
         FROM Jed j
@@ -42,16 +42,16 @@ def jedi_po_restavraciji(id_restavracije):
     return podatki
 
 
-# Vrne sestavine za izbrano jed
+# Vrne sestavine posamezne jedi
 def sestavine_za_jed(id_jedi):
     conn = povezava()
     cursor = conn.cursor()
 
-    # Povezovalna tabela Jed_Sestavina
     cursor.execute("""
         SELECT s.naziv
         FROM Sestavina s
-        JOIN Jed_Sestavina js ON s.id_sestavine = js.id_sestavine
+        JOIN Jed_Sestavina js
+            ON s.id_sestavine = js.id_sestavine
         WHERE js.id_jedi = ?;
     """, (id_jedi,))
 
@@ -60,18 +60,56 @@ def sestavine_za_jed(id_jedi):
     return podatki
 
 
-# Vrne alergene za izbrano jed
+# Vrne alergene posamezne jedi
 def alergeni_za_jed(id_jedi):
     conn = povezava()
     cursor = conn.cursor()
 
-    # Povezovalna tabela Jed_Alergen
     cursor.execute("""
         SELECT a.naziv
         FROM Alergen a
-        JOIN Jed_Alergen ja ON a.id_alergena = ja.id_alergena
+        JOIN Jed_Alergen ja
+            ON a.id_alergena = ja.id_alergena
         WHERE ja.id_jedi = ?;
     """, (id_jedi,))
+
+    podatki = cursor.fetchall()
+    conn.close()
+    return podatki
+
+
+# Vrne restavracije iz izbranega predela Ljubljane
+def restavracije_po_predelu(predel):
+    conn = povezava()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id_restavracije, ime, naslov
+        FROM Restavracija
+        WHERE predel = ?;
+    """, (predel,))
+
+    podatki = cursor.fetchall()
+    conn.close()
+    return podatki
+
+
+# Vrne restavracije glede na izbrani tip kuhinje
+def restavracije_po_kuhinji(tip_kuhinje):
+    conn = povezava()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT DISTINCT r.id_restavracije, r.ime, r.naslov
+        FROM Restavracija r
+        JOIN Meni m
+            ON r.id_restavracije = m.id_restavracije
+        JOIN Jed j
+            ON m.id_menija = j.id_menija
+        JOIN Tip_Kuhinje t
+            ON j.id_tipa_kuhinje = t.id_tipa_kuhinje
+        WHERE t.naziv = ?;
+    """, (tip_kuhinje,))
 
     podatki = cursor.fetchall()
     conn.close()
