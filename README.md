@@ -90,4 +90,4 @@ Nato v brskalniku odpremo:
 
 ## Avtorja
 
-[VAJINI IMENI]
+Jure Kovač, Vanja Stanojević
