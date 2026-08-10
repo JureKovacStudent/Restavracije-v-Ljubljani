@@ -11,6 +11,12 @@ menijev in jedi.
 Pri posamezni jedi so shranjeni tudi podatki o sestavinah, alergenih
 in tipu kuhinje.
 
+## ER diagram
+
+Spodnji diagram prikazuje strukturo podatkovne baze in povezave med tabelami.
+
+![ER diagram](diagram.png)
+
 ## Funkcionalnosti
 
 Projekt omogoča:
@@ -76,17 +82,79 @@ pa sestavine in alergene.
 
 ## Zagon programa
 
-Za zagon tekstovnega vmesnika:
+### 1. Prenos projekta
+
+Prenesi oziroma kloniraj celoten repozitorij. Pomembno je, da struktura
+datotek ostane nespremenjena:
+
+    Restavracije-v-Ljubljani/
+    │
+    ├── RestavracijeVLjubljani.db
+    ├── model.py
+    ├── tekstovni_vmesnik.py
+    ├── spletni_vmesnik.py
+    │
+    └── static/
+        └── ljubljana.svg
+
+Datoteke `model.py`, `tekstovni_vmesnik.py`, `spletni_vmesnik.py` in
+`RestavracijeVLjubljani.db` morajo biti shranjene v isti mapi.
+
+Datoteka `ljubljana.svg` mora ostati v podmapi `static`, saj jo spletni
+vmesnik od tam naloži za prikaz interaktivnega zemljevida Ljubljane.
+
+
+### 2. Namestitev knjižnice Bottle
+
+Za delovanje spletnega vmesnika je potrebna knjižnica Bottle.
+
+V ukazni vrstici oziroma terminalu zaženi:
+
+    pip install bottle
+
+Knjižnica `sqlite3`, ki jo program uporablja za delo s podatkovno bazo,
+je že vključena v Python in je ni treba dodatno nameščati.
+
+
+### 3. Tekstovni vmesnik
+
+Za uporabo tekstovnega vmesnika odpri terminal v mapi projekta in zaženi:
 
     python tekstovni_vmesnik.py
 
-Za zagon spletnega vmesnika:
+Program se bo zagnal neposredno v terminalu in ponudil možnosti za
+pregled restavracij, jedi, sestavin in alergenov.
+
+Za izhod iz tekstovnega vmesnika izberi možnost `0`.
+
+
+### 4. Spletni vmesnik
+
+Tekstovnega vmesnika ni treba zagnati pred spletnim vmesnikom.
+Programa sta med seboj neodvisna in oba uporabljata isto podatkovno bazo.
+
+Za zagon spletnega vmesnika v terminalu v mapi projekta zaženi:
 
     python spletni_vmesnik.py
 
-Nato v brskalniku odpremo:
+Po zagonu se zažene lokalni Bottle strežnik.
+
+Nato v spletnem brskalniku odpri:
 
     http://localhost:8080/
+
+Na začetni strani je mogoče izbrati predel Ljubljane s klikom na
+interaktivni zemljevid ali poiskati restavracije glede na tip kuhinje.
+
+Po izbiri restavracije je mogoče pregledati njene jedi, pri posamezni
+jedi pa tudi sestavine in alergene.
+
+
+### 5. Zaustavitev spletnega vmesnika
+
+Spletni strežnik ustaviš v terminalu s kombinacijo tipk:
+
+    Ctrl + C
 
 ## Avtorja
 
