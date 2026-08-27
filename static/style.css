@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #faf6ee;
+    color: #29251f;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* NASLOVI */
+
+h1 {
+    margin: 0 auto 20px auto;
+    color: #d96b32;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 46px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+h2 {
+    margin: 35px auto 15px auto;
+    color: #426b4a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+/* BESEDILO */
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+}
+
+/* POVEZAVE */
+
+a {
+    color: #426b4a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: #d96b32;
+}
+
+/* SEZNAMI */
+
+ul {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 12px auto;
+    padding: 16px 20px;
+    background-color: white;
+    border: 1px solid #ded8cd;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+li:hover {
+    border-color: #d96b32;
+    transform: translateY(-2px);
+}
+
+/* IZBIRA KUHINJE */
+
+.kuhinja {
+    width: 100%;
+    max-width: 600px;
+    margin: 35px auto 0 auto;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #ded8cd;
+    border-top: 4px solid #426b4a;
+    border-radius: 10px;
+    text-align: center;
+}
+
+select {
+    padding: 11px 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #29251f;
+    background-color: white;
+    border: 1px solid #bdb6aa;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: 2px solid #d96b32;
+    border-color: #d96b32;
+}
+
+/* GUMBI */
+
+button {
+    margin-left: 6px;
+    padding: 11px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #d96b32;
+    border: 2px solid #d96b32;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #b84d1d;
+    border-color: #b84d1d;
+}
+
+/* TELEFONI */
+
+/* DODATNI PODATKI */
+
+.podatek {
+    color: #777067;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.uvod {
+    color: #777067;
+    margin-bottom: 25px;
+}
+
+
+/* PODROBNOSTI JEDI */
+
+.podrobnosti-jedi {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sestavine,
+.alergeni {
+    margin: 35px auto;
+}
+
+.sestavine h2 {
+    color: #426b4a;
+}
+
+.alergeni h2 {
+    color: #d96b32;
+}
+
+
+/* NAVIGACIJA */
+
+.navigacija {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 40px auto;
+}
+
+.gumb-nazaj {
+    display: inline-block;
+    padding: 9px 14px;
+    color: #426b4a;
+    background-color: transparent;
+    border: 1px solid #426b4a;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.gumb-nazaj:hover {
+    color: white;
+    background-color: #426b4a;
+    text-decoration: none;
+}
+
+
+/* NOGA STRANI */
+
+footer {
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #ded8cd;
+    color: #8a8378;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .kuhinja {
+        padding: 20px 15px;
+    }
+
+    select {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    button {
+        display: block;
+        margin: 10px auto 0 auto;
+    }
+}

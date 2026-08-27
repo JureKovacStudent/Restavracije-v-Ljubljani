@@ -3,12 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Meni {{ime_restavracije}}</title>
 </head>
 
 <body>
 
     <h1>Meni {{ime_restavracije}}</h1>
+
+    <p class="uvod">Izberi jed za več informacij.</p>
 
     <ul>
 
@@ -24,31 +27,31 @@
 
     </ul>
 
+    <div class="navigacija">
 
-    % if izvor == "predel":
+        % if izvor == "predel":
 
-        <p>
-            <a href="/predel/{{vrednost}}">
+            <a href="/predel/{{vrednost}}" class="gumb-nazaj">
                 ← Nazaj na restavracije – {{vrednost}}
             </a>
-        </p>
 
-    % elif izvor == "kuhinja":
+        % elif izvor == "kuhinja":
 
-        <p>
-            <a href="/kuhinja?tip={{vrednost}}">
+            <a href="/kuhinja?tip={{vrednost}}" class="gumb-nazaj">
                 ← Nazaj na restavracije – {{vrednost}} kuhinja
             </a>
-        </p>
 
-    % end
+        % end
 
-
-    <p>
-        <a href="/">
+        <a href="/" class="gumb-nazaj">
             ← Nazaj na začetno stran
         </a>
-    </p>
+
+    </div>
+
+    <footer>
+        Restavracije v Ljubljani · Podatkovne baze 1 · 2025/26
+    </footer>
 
 </body>
 

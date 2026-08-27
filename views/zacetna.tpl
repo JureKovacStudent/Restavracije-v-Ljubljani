@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Restavracije v Ljubljani</title>
 
     <style>
@@ -49,7 +50,6 @@
         data="/static/ljubljana.svg">
     </object>
 
-
     <!-- Izbira tipa kuhinje -->
     <div class="kuhinja">
 
@@ -77,26 +77,29 @@
 
     </div>
 
-
     <!-- Omogočimo klikanje na posamezne predele SVG zemljevida -->
     <script>
 
         const zemljevid = document.getElementById("zemljevid");
 
-        zemljevid.addEventListener("load", function() {
+        const predeli = {
+            "siska": "Šiška",
+            "bezigrad": "Bežigrad",
+            "jarse": "Jarše",
+            "center": "Center",
+            "moste": "Moste",
+            "vic": "Vič",
+            "rudnik": "Rudnik"
+        };
+
+
+        function omogociKlikanje() {
 
             const svg = zemljevid.contentDocument;
 
-            // ID elementa v SVG -> ime predela v podatkovni bazi
-            const predeli = {
-                "siska": "Šiška",
-                "bezigrad": "Bežigrad",
-                "jarse": "Jarše",
-                "center": "Center",
-                "moste": "Moste",
-                "vic": "Vič",
-                "rudnik": "Rudnik"
-            };
+            if (!svg) {
+                return;
+            }
 
             for (const id in predeli) {
 
@@ -106,28 +109,37 @@
 
                     element.style.cursor = "pointer";
 
-                    // Klik na predel odpre seznam restavracij
-                    element.addEventListener("click", function() {
+                    element.onclick = function() {
 
                         window.location.href =
                             "/predel/" +
                             encodeURIComponent(predeli[id]);
 
-                    });
+                    };
 
-                    // Vizualni odziv ob premiku miške čez predel
-                    element.addEventListener("mouseenter", function() {
+                    element.onmouseenter = function() {
                         element.style.opacity = "0.7";
-                    });
+                    };
 
-                    element.addEventListener("mouseleave", function() {
+                    element.onmouseleave = function() {
                         element.style.opacity = "1";
-                    });
+                    };
                 }
             }
+        }
+
+
+        // Ko se SVG normalno naloži
+        zemljevid.addEventListener("load", omogociKlikanje);
+
+
+        // Dodatni poskus po nalaganju strani
+        window.addEventListener("load", function() {
+            omogociKlikanje();
         });
 
     </script>
 
 </body>
+
 </html>

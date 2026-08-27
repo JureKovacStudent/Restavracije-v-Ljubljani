@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
     <title>{{naslov}}</title>
 </head>
 
@@ -21,7 +22,8 @@
                         {{r[1]}}
                     </a>
 
-                    - {{r[2]}}
+                    <br>
+                    <span class="podatek">{{r[2]}}</span>
                 </li>
 
             % end
@@ -34,9 +36,14 @@
 
     </ul>
 
-    <p>
-        <a href="/">← Nazaj na začetno stran</a>
-    </p>
+    <div class="navigacija">
+        <a href="/" class="gumb-nazaj">← Nazaj na začetno stran</a>
+    </div>
+
+    <footer>
+        Restavracije v Ljubljani · Podatkovne baze 1 · 2025/26
+    </footer>
 
 </body>
+
 </html>

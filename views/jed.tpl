@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
     <title>{{ime_jedi}}</title>
 </head>
 
@@ -10,78 +11,85 @@
 
     <h1>{{ime_jedi}}</h1>
 
+    <div class="podrobnosti-jedi">
 
-    <h2>Sestavine</h2>
+        <section class="sestavine">
+            <h2>Sestavine</h2>
 
-    <ul>
-        % if sestavine:
+            <ul>
+                % if sestavine:
 
-            % for sestavina in sestavine:
-                <li>{{sestavina[0]}}</li>
-            % end
+                    % for sestavina in sestavine:
+                        <li>{{sestavina[0]}}</li>
+                    % end
 
-        % else:
+                % else:
 
-            <li>
-                Za izbrano jed ni navedenih sestavin.
-                Za dodatne informacije se obrnite na ponudnika.
-            </li>
+                    <li>
+                        Za izbrano jed ni navedenih sestavin.
+                        Za dodatne informacije se obrnite na ponudnika.
+                    </li>
 
-        % end
-    </ul>
-
-
-    <h2>Alergeni</h2>
-
-    <ul>
-        % if alergeni:
-
-            % for alergen in alergeni:
-                <li>{{alergen[0]}}</li>
-            % end
-
-        % else:
-
-            <li>
-                Za izbrano jed ni navedenih alergenov.
-                Za dodatne informacije se obrnite na ponudnika.
-            </li>
-
-        % end
-    </ul>
+                % end
+            </ul>
+        </section>
 
 
-    <p>
-        <a href="/restavracija/{{id_restavracije}}?izvor={{izvor}}&vrednost={{vrednost}}">
+        <section class="alergeni">
+            <h2>Alergeni</h2>
+
+            <ul>
+                % if alergeni:
+
+                    % for alergen in alergeni:
+                        <li>{{alergen[0]}}</li>
+                    % end
+
+                % else:
+
+                    <li>
+                        Za izbrano jed ni navedenih alergenov.
+                        Za dodatne informacije se obrnite na ponudnika.
+                    </li>
+
+                % end
+            </ul>
+        </section>
+
+    </div>
+
+
+    <div class="navigacija">
+
+        <a href="/restavracija/{{id_restavracije}}?izvor={{izvor}}&vrednost={{vrednost}}" class="gumb-nazaj">
             ← Nazaj na meni {{ime_restavracije}}
         </a>
-    </p>
 
 
-    % if izvor == "predel":
+        % if izvor == "predel":
 
-        <p>
-            <a href="/predel/{{vrednost}}">
+            <a href="/predel/{{vrednost}}" class="gumb-nazaj">
                 ← Nazaj na restavracije – {{vrednost}}
             </a>
-        </p>
 
-    % elif izvor == "kuhinja":
+        % elif izvor == "kuhinja":
 
-        <p>
-            <a href="/kuhinja?tip={{vrednost}}">
+            <a href="/kuhinja?tip={{vrednost}}" class="gumb-nazaj">
                 ← Nazaj na restavracije – {{vrednost}} kuhinja
             </a>
-        </p>
 
-    % end
+        % end
 
 
-    <p>
-        <a href="/">
+        <a href="/" class="gumb-nazaj">
             ← Nazaj na začetno stran
         </a>
-    </p>
+
+    </div>
+
+    <footer>
+        Restavracije v Ljubljani · Podatkovne baze 1 · 2025/26
+    </footer>
 
 </body>
 
