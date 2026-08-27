@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1200 700" style="enable-background:new 0 0 1200 700;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00A651;}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'MyriadPro-Regular';}
+	.st3{font-size:24px;}
+	.st4{fill:#427B52;}
+	.st5{fill:#19B469;}
+	.st6{fill:#006838;}
+	.st7{fill:#25803F;}
+	.st8{fill:#4BB749;}
+	.st9{fill:#81C341;}
+</style>
+<g id="siska">
+	<polygon id="XMLID_16_" class="st0" points="397.9,42.3 327.8,108.1 291.3,182 291.3,225.5 371.3,258.7 443.5,264.7 487.6,294 
+		522.4,334.2 529,328.8 529,254.9 465.6,159.7 474.5,139.1 	"/>
+	<text id="XMLID_2_" transform="matrix(1 0 0 1 382.6013 197.2621)" class="st1 st2 st3">Šiška</text>
+</g>
+<g id="vic">
+	<polygon id="XMLID_12_" class="st4" points="526.6,483.6 532.3,572.6 463.3,601.1 291,544 206.4,498.9 193.3,468.2 199.6,436.3 
+		257.2,395.6 324.9,426.3 441.4,364.9 482.1,395.6 	"/>
+	<text id="XMLID_3_" transform="matrix(1 0 0 1 351.0725 493.3131)" class="st1 st2 st3">Vič</text>
+</g>
+<g id="center">
+	<polygon id="XMLID_8_" class="st5" points="535.3,480.3 490.9,392.3 532.3,336 647.5,336 663.2,436.3 655.4,463.2 619.3,480.3 	"/>
+	<text id="XMLID_4_" transform="matrix(1 0 0 1 548.2617 412.0861)" class="st1 st2 st3">Center</text>
+</g>
+<g id="bezigrad">
+	<polygon id="XMLID_14_" class="st6" points="712.1,140.7 703.4,117.3 568.6,98.3 497.4,114.6 476.7,157.6 538.8,252.7 538.8,326.6 
+		669.1,326.6 703.4,261.4 691.4,188.3 	"/>
+	<text id="XMLID_5_" transform="matrix(1 0 0 1 558.4151 218.6375)" class="st1 st2 st3">Bežigrad</text>
+</g>
+<g id="rudnik">
+	<polygon id="XMLID_1_" class="st7" points="642.6,519.8 681.3,542.4 765.7,624.8 733.5,657.7 619.2,581.7 541,578 535.2,489 
+		619.2,489 	"/>
+	<text id="XMLID_6_" transform="matrix(1 0 0 1 558.4151 545.6832)" class="st1 st2 st3">Rudnik</text>
+</g>
+<g id="moste">
+	<polygon id="XMLID_10_" class="st8" points="929,414.7 779.5,428.3 666.4,453.8 675.1,432.6 657.7,336 929,336 956.7,369.6 	"/>
+	<text id="XMLID_7_" transform="matrix(1 0 0 1 748.1224 385.3667)" class="st1 st2 st3">Moste</text>
+</g>
+<g id="jarse">
+	<polygon id="XMLID_17_" class="st9" points="679,326.6 713.2,261.4 703.9,209.7 782.2,176 834.9,204.3 872.4,243.5 906.1,261.4 
+		978.4,261.4 1006.7,306 992.6,326.6 	"/>
+	<text id="XMLID_9_" transform="matrix(1 0 0 1 778.0483 274.7482)" class="st1 st2 st3">Jarše</text>
+</g>
+</svg>

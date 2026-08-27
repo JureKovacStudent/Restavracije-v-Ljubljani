@@ -25,6 +25,25 @@ def vse_restavracije():
     return podatki
 
 
+def ime_restavracije(id_restavracije):
+    conn = povezava()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT ime
+        FROM Restavracija
+        WHERE id_restavracije = ?;
+    """, (id_restavracije,))
+
+    podatek = cursor.fetchone()
+    conn.close()
+
+    if podatek:
+        return podatek[0]
+
+    return None
+
+
 # Vrne jedi posamezne restavracije
 def jedi_po_restavraciji(id_restavracije):
     conn = povezava()
@@ -40,6 +59,23 @@ def jedi_po_restavraciji(id_restavracije):
     podatki = cursor.fetchall()
     conn.close()
     return podatki
+
+# Vrne podatke o posamezni jedi
+def podatki_o_jedi(id_jedi):
+    conn = povezava()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT j.ime, m.id_restavracije
+        FROM Jed j
+        JOIN Meni m ON j.id_menija = m.id_menija
+        WHERE j.id_jedi = ?;
+    """, (id_jedi,))
+
+    podatek = cursor.fetchone()
+    conn.close()
+
+    return podatek
 
 
 # Vrne sestavine posamezne jedi
