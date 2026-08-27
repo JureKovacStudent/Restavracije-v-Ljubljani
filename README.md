@@ -101,7 +101,8 @@ Restavracije-v-Ljubljani/
 │   └── tipi_kuhinje.csv
 │
 ├── static/
-│   └── ljubljana.svg
+│   ├── ljubljana.svg
+│   └── style.css
 │
 ├── views/
 │   ├── jed.tpl
@@ -193,6 +194,34 @@ Spletni strežnik ustaviš v terminalu s kombinacijo tipk:
 
 ```text
 Ctrl + C
+```
+
+## Hitra navodila za uporabo
+
+Če so projekt, Python in knjižnica Bottle že pripravljeni, lahko aplikacijo zaženeš neposredno iz terminala.
+
+1. Ukaz za vzpostavitev baze podatkov:
+
+```bash
+python ustvari_bazo.py
+```
+
+2. Ukaz za zagon tekstovnega vmesnika:
+
+```bash
+python tekstovni_vmesnik.py
+```
+
+3. Ukaz za zagon spletnega vmesnika:
+
+```bash
+python spletni_vmesnik.py
+```
+
+Po zagonu spletnega vmesnika v brskalniku odpri:
+
+```text
+http://localhost:8080/
 ```
 
 ## Avtorja
